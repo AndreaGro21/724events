@@ -12,7 +12,6 @@ const DataContext = createContext({});
 export const api = {
   loadData: async () => {
     const json = await fetch("./events.json");
-    console.log(json, "cristo")
     return json.json();
   },
 };
@@ -31,9 +30,6 @@ export const DataProvider = ({ children }) => {
     if (data) return;
     getData();
   });
-  console.log(data, "diocane")
-  console.log(getData, "cacca")
-  console.log({ children })
   return (
     <DataContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values

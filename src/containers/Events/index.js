@@ -15,8 +15,6 @@ const EventList = () => {
   const filteredEvents = (
     (!type ? data?.events : data?.events.filter(event => !type || event.type === type)) || []).filter((_, index) => {//added filter to data.events
       if ((currentPage - 1) * PER_PAGE <= index && PER_PAGE * currentPage > index) {
-        console.log(data, "tipo di data")
-        console.log(type, "cqtegoria serata")
         return true;
       }
       return false;
