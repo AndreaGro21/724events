@@ -50,8 +50,17 @@ DataProvider.propTypes = {
 
 export const useData = () => {
   const {data, error} = useContext(DataContext)
-
-  const last = data?.focus?.[data.focus.length -1] // récupération derniere élément de focus
+  let last = useContext(DataContext)
+  if (data) {
+    const sortedEvents = data.events.sort((eventA, eventB) =>
+    new Date(eventB.date) - new Date(eventA.date)
+    );
+    if (sortedEvents.length > 0) {
+    last = sortedEvents[0];
+  
+    }
+    }
+    
 
   return {data, error, last}
 }

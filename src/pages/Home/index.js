@@ -118,6 +118,7 @@ const Page = () => {
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         {last && last?.cover && last?.title ? (
+          
           <EventCard
             imageSrc={last?.cover}
             title={last?.title}
