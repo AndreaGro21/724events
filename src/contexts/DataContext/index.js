@@ -52,10 +52,10 @@ export const useData = () => {
   const {data, error} = useContext(DataContext)
   let last = useContext(DataContext)
   if (data) {
-    const sortedEvents = data.events.sort((eventA, eventB) =>
+    const sortedEvents = data.events?.sort((eventA, eventB) =>
     new Date(eventB.date) - new Date(eventA.date)
     );
-    if (sortedEvents.length > 0) {
+    if (sortedEvents?.length > 0) {
     last = sortedEvents[0];
   
     }
